@@ -3,221 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sisar One — Official Landing</title>
-  <meta name="description" content="Sisar One — Minimalist landing page, multilingual, privacy-compliant." />
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #000000;
-      --primary: #003366;
-      --accent: #ff6600;
-      --muted: #666666;
-      --border: #e6e6e6;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; background: var(--bg); color: var(--text);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height: 1.5;
-    }
-    header {
-      position: sticky; top: 0; z-index: 1000; background: var(--bg);
-      border-bottom: 1px solid var(--border);
-    }
-    .wrap {
-      max-width: 920px; margin: 0 auto; padding: 12px 16px;
-      display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center;
-    }
-    .brand {
-      display: flex; align-items: center; gap: 10px;
-    }
-    .brand img {
-      width: 44px; height: 44px; object-fit: contain; image-rendering: -webkit-optimize-contrast;
-    }
-    .brand .title {
-      font-size: 22px; font-weight: 700; color: var(--primary); margin: 0;
-    }
-    nav.lang {
-      display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end;
-    }
-    nav.lang a {
-      text-decoration: none; font-weight: 700; color: var(--accent);
-      padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border);
-    }
-    nav.lang a.active { background: #fff3e6; border-color: #ffd6ad; }
-    main { max-width: 920px; margin: 0 auto; padding: 24px 16px; }
-    section {
-      display: none; /* se controla por JS */
-      border: 1px solid var(--border); border-radius: 12px;
-      padding: 18px; margin-bottom: 16px;
-    }
-    h2 { color: var(--primary); margin: 0 0 8px; font-size: 22px; }
-    p { margin: 0 0 12px; color: var(--text); }
-    .muted { color: var(--muted); }
-    .links {
-      display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px;
-    }
-    .links a {
-      text-decoration: none; color: var(--accent); font-weight: 700;
-      border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px;
-    }
-    footer {
-      max-width: 920px; margin: 24px auto; padding: 16px;
-      color: var(--muted); font-size: 14px; border-top: 1px solid var(--border);
-    }
-  </style>
+  <title>Sisar One – Android Games</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <div class="wrap">
-      <div class="brand">
-        <img src="images/logo.png" alt="Sisar One logo" />
-        <h1 class="title">Sisar One</h1>
-      </div>
-      <nav class="lang" aria-label="Language selector">
-        <a href="#en">🇺🇸 English</a>
-        <a href="#es">🇲🇽 Español</a>
-        <a href="#pt">🇧🇷 Português</a>
-        <a href="#de">🇩🇪 Deutsch</a>
-        <a href="#fr">🇫🇷 Français</a>
-        <a href="#ja">🇯🇵 日本語</a>
-        <a href="#hi">🇮🇳 हिन्दी</a>
-      </nav>
+    <div class="brand">
+      <img src="images/logo.png" alt="Sisar One Logo" class="logo" />
+      <h1>Sisar One</h1>
     </div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#games">Games</a></li>
+        <li><a href="#privacy">Privacy Policy</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <!-- Selector de idioma -->
+      <div class="lang-selector">
+        <a href="#en">🇺🇸</a>
+        <a href="#es">🇲🇽</a>
+        <a href="#pt">🇧🇷</a>
+        <a href="#de">🇩🇪</a>
+        <a href="#fr">🇫🇷</a>
+        <a href="#ja">🇯🇵</a>
+        <a href="#hi">🇮🇳</a>
+      </div>
+    </nav>
   </header>
 
-  <main>
-    <!-- English -->
-    <section id="en" lang="en">
-      <h2>Welcome</h2>
-      <p>Sisar One publishes minimalist, fast mobile games. This landing is multilingual and privacy-compliant.</p>
-      <p class="muted">Regional privacy: GDPR, CCPA/CPRA, LGPD, LFPDPPP, and India’s DPDP 2025 are acknowledged in our policies.</p>
-      <div class="links">
-        <a href="privacy/google-ads.html" target="_blank">Google Ads privacy</a>
-        <a href="privacy/start.io.html" target="_blank">Start.io privacy</a>
-      </div>
-    </section>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h2>Sisar One – Android Games</h2>
+    <p>Creative tap-based experiences for mobile players</p>
+  </section>
 
-    <!-- Español -->
-    <section id="es" lang="es">
-      <h2>Bienvenido</h2>
-      <p>Sisar One publica juegos móviles minimalistas y rápidos. Esta página es multilingüe y cumple privacidad.</p>
-      <p class="muted">Privacidad regional: GDPR, CCPA/CPRA, LGPD, LFPDPPP y DPDP 2025 de India están reconocidas en nuestras políticas.</p>
-      <div class="links">
-        <a href="privacy/google-ads.html" target="_blank">Privacidad Google Ads</a>
-        <a href="privacy/start.io.html" target="_blank">Privacidad Start.io</a>
-      </div>
-    </section>
+  <!-- Games Section -->
+  <section id="games">
+    <h2>Games</h2>
+    <div id="carousel"></div>
+  </section>
 
-    <!-- Português -->
-    <section id="pt" lang="pt">
-      <h2>Bem-vindo</h2>
-      <p>A Sisar One publica jogos móveis minimalistas e rápidos. Esta página é multilíngue e compatível com privacidade.</p>
-      <p class="muted">Privacidade regional: GDPR, CCPA/CPRA, LGPD, LFPDPPP e DPDP 2025 da Índia são reconhecidas em nossas políticas.</p>
-      <div class="links">
-        <a href="privacy/google-ads.html" target="_blank">Privacidade Google Ads</a>
-        <a href="privacy/start.io.html" target="_blank">Privacidade Start.io</a>
-      </div>
-    </section>
+  <!-- Privacy Section -->
+  <section id="privacy">
+    <h2>Privacy Policy</h2>
+    <p>Read our policies:</p>
+    <ul>
+      <li><a href="privacy/google-ads.html" target="_blank">Google Ads Privacy</a></li>
+      <li><a href="privacy/start.io.html" target="_blank">Start.io Privacy</a></li>
+    </ul>
+  </section>
 
-    <!-- Deutsch -->
-    <section id="de" lang="de">
-      <h2>Willkommen</h2>
-      <p>Sisar One veröffentlicht minimalistische, schnelle Mobile Games. Diese Seite ist mehrsprachig und datenschutzkonform.</p>
-      <p class="muted">Regionale Privatsphäre: GDPR, CCPA/CPRA, LGPD, LFPDPPP und Indiens DPDP 2025 sind in unseren Richtlinien berücksichtigt.</p>
-      <div class="links">
-        <a href="privacy/google-ads.html" target="_blank">Datenschutz Google Ads</a>
-        <a href="privacy/start.io.html" target="_blank">Datenschutz Start.io</a>
-      </div>
-    </section>
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Support: <a href="mailto:sisarone@outlook.com">sisarone@outlook.com</a></p>
+  </section>
 
-    <!-- Français -->
-    <section id="fr" lang="fr">
-      <h2>Bienvenue</h2>
-      <p>Sisar One publie des jeux mobiles minimalistes et rapides. Cette page est multilingue et conforme à la confidentialité.</p>
-      <p class="muted">Confidentialité régionale : RGPD, CCPA/CPRA, LGPD, LFPDPPP et DPDP 2025 de l’Inde sont reconnues dans nos politiques.</p>
-      <div class="links">
-        <a href="privacy/google-ads.html" target="_blank">Confidentialité Google Ads</a>
-        <a href="privacy/start.io.html" target="_blank">Confidentialité Start.io</a>
-      </div>
-    </section>
-
-    <!-- 日本語 -->
-    <section id="ja" lang="ja">
-      <h2>ようこそ</h2>
-      <p>Sisar One はミニマルで高速なモバイルゲームを公開しています。本ページは多言語対応でプライバシー準拠です。</p>
-      <p class="muted">地域のプライバシー: GDPR、CCPA/CPRA、LGPD、LFPDPPP、インドの DPDP 2025 は当社ポリシーで認識されています。</p>
-      <div class="links">
-        <a href="privacy/google-ads.html" target="_blank">Google Ads プライバシー</a>
-        <a href="privacy/start.io.html" target="_blank">Start.io プライバシー</a>
-      </div>
-    </section>
-
-    <!-- हिन्दी -->
-    <section id="hi" lang="hi">
-      <h2>स्वागत है</h2>
-      <p>Sisar One तेज़ और मिनिमलिस्ट मोबाइल गेम्स प्रकाशित करता है। यह पेज बहुभाषी है और गोपनीयता अनुपालन करता है।</p>
-      <p class="muted">क्षेत्रीय गोपनीयता: GDPR, CCPA/CPRA, LGPD, LFPDPPP और भारत का DPDP 2025 हमारी नीतियों में मान्य है।</p>
-      <div class="links">
-        <a href="privacy/google-ads.html" target="_blank">Google Ads गोपनीयता</a>
-        <a href="privacy/start.io.html" target="_blank">Start.io गोपनीयता</a>
-      </div>
-    </section>
-  </main>
-
+  <!-- Footer -->
   <footer>
-    © Sisar One — All rights reserved. Contact: sisarone@outlook.com
+    <p>© 2025 Sisar One – Android Games</p>
+    <p>Available for Android</p>
   </footer>
 
-  <script>
-    (function() {
-      const supported = ["en","es","pt","de","fr","ja","hi"];
-
-      // Detect language
-      const navLang = (navigator.languages && navigator.languages[0]) || navigator.language || "en";
-      let lang = (navLang || "en").slice(0,2).toLowerCase();
-      if (!supported.includes(lang)) lang = "en";
-
-      // If hash specifies a supported section, override detection
-      const hash = location.hash.replace("#", "");
-      if (supported.includes(hash)) lang = hash;
-
-      // Show only selected section
-      const sections = document.querySelectorAll("main section");
-      sections.forEach(sec => {
-        sec.style.display = (sec.id === lang) ? "block" : "none";
-      });
-
-      // Mark active flag
-      const links = document.querySelectorAll("nav.lang a");
-      links.forEach(a => {
-        const id = a.getAttribute("href").replace("#", "");
-        a.classList.toggle("active", id === lang);
-        a.addEventListener("click", (e) => {
-          e.preventDefault();
-          const target = a.getAttribute("href").replace("#", "");
-          // Update hash for deep-linking
-          history.replaceState(null, "", "#" + target);
-          sections.forEach(sec => {
-            sec.style.display = (sec.id === target) ? "block" : "none";
-          });
-          links.forEach(b => b.classList.toggle("active", b === a));
-        });
-      });
-
-      // Respond to hash changes (if user modifies URL manually)
-      window.addEventListener("hashchange", () => {
-        const h = location.hash.replace("#", "");
-        const target = supported.includes(h) ? h : "en";
-        sections.forEach(sec => {
-          sec.style.display = (sec.id === target) ? "block" : "none";
-        });
-        links.forEach(a => {
-          const id = a.getAttribute("href").replace("#", "");
-          a.classList.toggle("active", id === target);
-        });
-      });
-    })();
-  </script>
+  <!-- Scripts -->
+  <script src="js/carousel.js"></script>
+  <script src="js/lang.js"></script>
 </body>
 </html>
