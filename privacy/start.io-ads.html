@@ -53,7 +53,8 @@
       margin-top: 40px;
       border-top: 1px solid #ccc;
       padding-top: 20px;
-      scroll-margin-top: 140px;
+      /* Asegura que el salto de ancla no se oculte detrás del encabezado fijo */
+      scroll-margin-top: 140px; 
     }
     h2 {
       color: #003366;
@@ -62,6 +63,29 @@
       font-weight: bold;
     }
   </style>
+  
+  <script>
+    function autoDetectLanguage() {
+        // Códigos de idioma disponibles en las secciones del documento (IDs)
+        const supportedLangs = ['en', 'es', 'pt', 'de', 'fr', 'ja', 'hi']; 
+        
+        // Obtiene el idioma del navegador (ej: "es-MX", "en-US").
+        const browserLang = (navigator.language || navigator.userLanguage).toLowerCase();
+        // Extrae el código base (ej: "es").
+        const baseLang = browserLang.substring(0, 2);
+        
+        // Determina el idioma objetivo, por defecto 'en'.
+        let targetLang = supportedLangs.includes(baseLang) ? baseLang : 'en';
+
+        // Si la URL no tiene un ancla (hash) o el ancla no es un idioma soportado, redirige al idioma detectado.
+        // Esto permite que los enlaces de la barra de navegación funcionen correctamente.
+        if (!window.location.hash || !supportedLangs.includes(window.location.hash.substring(1))) {
+            window.location.hash = '#' + targetLang;
+        }
+    }
+    // Ejecuta la detección una vez que el DOM esté completamente cargado.
+    document.addEventListener('DOMContentLoaded', autoDetectLanguage);
+  </script>
 </head>
 <body>
   <header>
@@ -112,9 +136,9 @@
   <ul>
     <li><strong>🇺🇸 United States (CCPA/CPRA):</strong> California users have the right to know, delete, and **Opt Out of Selling or Sharing** their personal data. Start.io is considered an entity that "sells" data under this law.</li>
     <li><strong>🇲🇽 Mexico (LFPDPPP):</strong> Users may exercise their ARCO rights (Access, Rectification, Cancellation, and Opposition) by contacting **Start.io**.</li>
-    <li><strong>🇧🇷 Brazil (LGPD):</strong> Users have the rights of access, correction, deletion, and revocation of consent, which must be exercised with **Start.io**.</li>
+    <li><strong>🇧🇷 Brazil (LGPD):** Users have the rights of access, correction, deletion, and revocation of consent, which must be exercised with **Start.io**.</li>
     <li><strong>🇪🇺 European Union (GDPR):</strong> Rights of access, rectification, deletion, portability, and objection. **Start.io** is the Data Controller.</li>
-    <li><strong>🇮🇳 India – Digital Personal Data Protection Act (DPDP Act, 2023):** Data Principals have the right to access, correct, complete, update, and erase their personal data. These rights must be exercised before the Data Fiduciary, which in this context is **Start.io**.</li>
+    <li><strong>🇮🇳 India – Digital Personal Data Protection Act (DPDP Act, 2023):</strong> Data Principals have the right to access, correct, complete, update, and erase their personal data. These rights must be exercised before the Data Fiduciary, which in this context is **Start.io**.</li>
   </ul>
   <p>Consult the <a href="https://www.start.io/policy/privacy-policy-site/" target="_blank">**Start.io Privacy Policy**</a> for specific instructions on how to exercise these rights.</p>
 
@@ -177,10 +201,10 @@
   <p>El ejercicio de todos los derechos de privacidad debe dirigirse directamente a **Start.io**.</p>
   <ul>
     <li><strong>🇺🇸 Estados Unidos (CCPA/CPRA):</strong> Los usuarios de California tienen derecho a saber, eliminar y **Optar por No Vender o Compartir** sus datos personales. Start.io se considera una entidad que "vende" datos según esta ley.</li>
-    <li><strong>🇲🇽 México (LFPDPPP):</strong> Los usuarios pueden ejercer sus derechos ARCO (Acceso, Rectificación, Cancelación y Oposición) contactando a **Start.io**.</li>
+    <li><strong>🇲🇽 México (LFPDPPP):</strong> Los usuarios pueden ejercer sus derechos ARCO (Acceso, Retificación, Cancelación y Oposición) contactando a **Start.io**.</li>
     <li><strong>🇧🇷 Brasil (LGPD):</strong> Usuarios tienen derechos de acceso, corrección, eliminación y revocación de consentimiento, que deben ser ejercidos con **Start.io**.</li>
     <li><strong>🇪🇺 Unión Europea (GDPR):</strong> Derechos de acceso, rectificación, eliminación, portabilidad y oposición. **Start.io** es el Responsable del Tratamiento.</li>
-    <li><strong>🇮🇳 India – Ley de Protección de Datos Personales Digitales (DPDP Act, 2023):** Los Titulares de los Datos (Data Principals) tienen derecho a acceder, corregir, completar, actualizar y borrar sus datos personales. Estos derechos deben ejercerse ante el Fiduciario de Datos, que en este contexto es **Start.io**.</li>
+    <li><strong>🇮🇳 India – Ley de Protección de Datos Personales Digitales (DPDP Act, 2023):</strong> Los Titulares de los Datos (Data Principals) tienen derecho a acceder, corregir, completar, actualizar y borrar sus datos personales. Estos derechos deben ejercerse ante el Fiduciario de Datos, que en este contexto es **Start.io**.</li>
   </ul>
   <p>Consulte la <a href="https://www.start.io/policy/privacy-policy-site/" target="_blank">**Política de Privacidad de Start.io**</a> para instrucciones específicas sobre cómo ejercer estos derechos.</p>
 
