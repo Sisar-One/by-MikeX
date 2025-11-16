@@ -36,10 +36,18 @@
       justify-content: center;
     }
     nav a {
-      margin: 0 8px;
+      margin: 4px 8px; /* Ajuste para dar espacio vertical */
       text-decoration: none;
       font-weight: bold;
       color: #ff6600;
+      padding: 4px 8px; /* Padding para el resaltado */
+      border-radius: 4px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    /* Estilo para el idioma activo (la nueva corrección) */
+    nav a.active-lang {
+      background-color: #ff6600; /* Fondo naranja */
+      color: #ffffff; /* Texto blanco */
     }
     nav img {
       width: 20px;
@@ -53,8 +61,7 @@
       margin-top: 40px;
       border-top: 1px solid #ccc;
       padding-top: 20px;
-      /* Asegura que el salto de ancla no se oculte detrás del encabezado fijo */
-      scroll-margin-top: 140px; 
+      scroll-margin-top: 140px;
     }
     h2 {
       color: #003366;
@@ -65,26 +72,52 @@
   </style>
   
   <script>
-    function autoDetectLanguage() {
-        // Códigos de idioma disponibles en las secciones del documento (IDs)
-        const supportedLangs = ['en', 'es', 'pt', 'de', 'fr', 'ja', 'hi']; 
+    const supportedLangs = ['en', 'es', 'pt', 'de', 'fr', 'ja', 'hi']; 
+
+    // Función para actualizar el estilo del enlace activo en la barra de navegación
+    function updateActiveNav() {
+        const currentHash = window.location.hash.substring(1); // Obtiene el código de idioma (ej: 'es')
         
-        // Obtiene el idioma del navegador (ej: "es-MX", "en-US").
+        // 1. Elimina la clase 'active-lang' de todos los enlaces
+        document.querySelectorAll('nav a').forEach(link => {
+            link.classList.remove('active-lang');
+        });
+
+        // 2. Agrega la clase 'active-lang' al enlace actual
+        let targetLang = supportedLangs.includes(currentHash) ? currentHash : 'en';
+
+        // Manejar el caso de que el hash esté vacío (carga inicial)
+        if (currentHash === '' && window.location.hash.length === 0) {
+            targetLang = 'en'; // Por defecto, si no hay hash, resaltar inglés
+        }
+
+        const activeLink = document.querySelector(`nav a[href="#${targetLang}"]`);
+        if (activeLink) {
+            activeLink.classList.add('active-lang');
+        }
+    }
+
+    // Función principal de detección de idioma y redirección
+    function autoDetectLanguageAndRedirect() {
         const browserLang = (navigator.language || navigator.userLanguage).toLowerCase();
-        // Extrae el código base (ej: "es").
         const baseLang = browserLang.substring(0, 2);
         
-        // Determina el idioma objetivo, por defecto 'en'.
         let targetLang = supportedLangs.includes(baseLang) ? baseLang : 'en';
 
-        // Si la URL no tiene un ancla (hash) o el ancla no es un idioma soportado, redirige al idioma detectado.
-        // Esto permite que los enlaces de la barra de navegación funcionen correctamente.
+        // Solo redirige si la URL no tiene un ancla o si el ancla no es un idioma soportado.
         if (!window.location.hash || !supportedLangs.includes(window.location.hash.substring(1))) {
             window.location.hash = '#' + targetLang;
         }
+
+        // Llama a la función de resaltado inmediatamente
+        updateActiveNav();
     }
-    // Ejecuta la detección una vez que el DOM esté completamente cargado.
-    document.addEventListener('DOMContentLoaded', autoDetectLanguage);
+    
+    // 1. Ejecuta la detección/redirección en la carga inicial
+    document.addEventListener('DOMContentLoaded', autoDetectLanguageAndRedirect);
+    
+    // 2. Actualiza el resaltado cuando el usuario hace clic en un enlace de idioma
+    window.addEventListener('hashchange', updateActiveNav);
   </script>
 </head>
 <body>
@@ -106,9 +139,7 @@
   <h2>Privacy Policy</h2>
   <p><strong>Effective Date:</strong> October 2, 2025</p>
   <p>This Privacy Policy applies to all mobile games published by 
-  <strong>Sisar One</strong> that include a link to this document, including but not limited to Arcade, Platformer, Casual, and Idle games **available on one or more stores compatible with the Start.io advertising platform (such as Google Play, Samsung Galaxy Store, Huawei AppGallery, and Aptoide).**</p>
-
-  <h3>1. Data Collected (Automatic Collection)</h3>
+  <strong>Sisar One</strong> that include a link to this document, including but not limited to Arcade, Platformer, Casual, and Idle games **available on one or more stores compatible with the Start.io advertising platform (such as Google Play, Samsung Galaxy Store, Huawei AppGallery, and Aptoide).**</p> <h3>1. Data Collected (Automatic Collection)</h3>
   <p>The following types of data are collected automatically by our third-party provider, **Start.io**, when you use our games:</p>
   <ul>
     <li><strong>Device Advertising ID:</strong> A unique, user-resettable identifier used for advertising purposes.</li>
@@ -138,7 +169,7 @@
     <li><strong>🇲🇽 Mexico (LFPDPPP):</strong> Users may exercise their ARCO rights (Access, Rectification, Cancellation, and Opposition) by contacting **Start.io**.</li>
     <li><strong>🇧🇷 Brazil (LGPD):** Users have the rights of access, correction, deletion, and revocation of consent, which must be exercised with **Start.io**.</li>
     <li><strong>🇪🇺 European Union (GDPR):</strong> Rights of access, rectification, deletion, portability, and objection. **Start.io** is the Data Controller.</li>
-    <li><strong>🇮🇳 India – Digital Personal Data Protection Act (DPDP Act, 2023):</strong> Data Principals have the right to access, correct, complete, update, and erase their personal data. These rights must be exercised before the Data Fiduciary, which in this context is **Start.io**.</li>
+    <li><strong>🇮🇳 India – Digital Personal Data Protection Act (DPDP Act, 2023):** Data Principals have the right to access, correct, complete, update, and erase their personal data. These rights must be exercised before the Data Fiduciary, which in this context is **Start.io**.</li>
   </ul>
   <p>Consult the <a href="https://www.start.io/policy/privacy-policy-site/" target="_blank">**Start.io Privacy Policy**</a> for specific instructions on how to exercise these rights.</p>
 
@@ -202,7 +233,7 @@
   <ul>
     <li><strong>🇺🇸 Estados Unidos (CCPA/CPRA):</strong> Los usuarios de California tienen derecho a saber, eliminar y **Optar por No Vender o Compartir** sus datos personales. Start.io se considera una entidad que "vende" datos según esta ley.</li>
     <li><strong>🇲🇽 México (LFPDPPP):</strong> Los usuarios pueden ejercer sus derechos ARCO (Acceso, Retificación, Cancelación y Oposición) contactando a **Start.io**.</li>
-    <li><strong>🇧🇷 Brasil (LGPD):</strong> Usuarios tienen derechos de acceso, corrección, eliminación y revocación de consentimiento, que deben ser ejercidos con **Start.io**.</li>
+    <li><strong>🇧🇷 Brasil (LGPD):</strong> Usuarios tienen derechos de acceso, corrección, exclusión y revocación de consentimiento, que deben ser ejercidos con **Start.io**.</li>
     <li><strong>🇪🇺 Unión Europea (GDPR):</strong> Derechos de acceso, rectificación, eliminación, portabilidad y oposición. **Start.io** es el Responsable del Tratamiento.</li>
     <li><strong>🇮🇳 India – Ley de Protección de Datos Personales Digitales (DPDP Act, 2023):</strong> Los Titulares de los Datos (Data Principals) tienen derecho a acceder, corregir, completar, actualizar y borrar sus datos personales. Estos derechos deben ejercerse ante el Fiduciario de Datos, que en este contexto es **Start.io**.</li>
   </ul>
@@ -334,9 +365,9 @@
   <ul>
     <li><strong>🇺🇸 Vereinigte Staaten (CCPA/CPRA):</strong> Nutzer in Kalifornien haben das Recht auf Auskunft, Löschung und **Widerspruch gegen den Verkauf oder die Weitergabe** ihrer personenbezogenen Daten. Start.io gilt nach diesem Gesetz als eine Einheit, die Daten "verkauft".</li>
     <li><strong>🇲🇽 Mexiko (LFPDPPP):</strong> Nutzer können ihre ARCO-Rechte (Zugriff, Berichtigung, Löschung und Widerspruch) durch Kontaktaufnahme mit **Start.io** ausüben.</li>
-    <li><strong>🇧🇷 Brasilien (LGPD):</strong> Nutzer haben die Rechte auf Zugriff, Berichtigung, Löschung und Widerruf der Einwilligung, die bei **Start.io** geltend gemacht werden müssen.</li>
+    <li><strong>🇧🇷 Brasilien (LGPD):** Nutzer haben die Rechte auf Zugriff, Berichtigung, Löschung und Widerruf der Einwilligung, die bei **Start.io** geltend gemacht werden müssen.</li>
     <li><strong>🇪🇺 Europäische Union (DSGVO):</strong> Rechte auf Zugriff, Berichtigung, Löschung, Datenübertragbarkeit und Widerspruch. Die **Start.io** ist der Verantwortliche.</li>
-    <li><strong>🇮🇳 Indien – Gesetz zum Schutz digitaler personenbezogener Daten (DPDP Act, 2023):</strong> Die Datensubjekte (Data Principals) haben das Recht, auf ihre personenbezogenen Daten zuzugreifen, diese zu korrigieren, zu vervollständigen, zu aktualisieren und zu löschen. Diese Rechte sind gegenüber dem Datentreuhänder geltend zu machen, der in diesem Kontext die **Start.io** ist.</li>
+    <li><strong>🇮🇳 Indien – Gesetz zum Schutz digitaler personenbezogener Daten (DPDP Act, 2023):** Die Datensubjekte (Data Principals) haben das Recht, auf ihre personenbezogenen Daten zuzugreifen, diese zu korrigieren, zu vervollständigen, zu aktualisieren und zu löschen. Diese Rechte sind gegenüber dem Datentreuhänder geltend zu machen, der in diesem Kontext die **Start.io** ist.</li>
   </ul>
   <p>Konsultieren Sie die <a href="https://www.start.io/policy/privacy-policy-site/" target="_blank">**Datenschutzrichtlinie von Start.io**</a> für spezifische Anweisungen zur Ausübung dieser Rechte.</p>
 
@@ -370,7 +401,7 @@
 <section id="fr">
   <h2>Politique de Confidentialité</h2>
   <p><strong>Date d’entrée en vigueur :</strong> 2 octobre 2025</p>
-  <p>Cette Politique de Confidentialité s'applique à tous les jeux mobiles publiés par <strong>Sisar One</strong> qui incluent un lien vers ce document, y compris, mais sans s'y limiter, les jeux de type Arcade, Plateforme, Casual et Idle **disponibles sur un ou plusieurs stores compatibles avec la plateforme publicitaire Start.io (tels que Google Play, Samsung Galaxy Store, Huawei AppGallery et Aptoide).**</p>
+  <p>Cette Politique de Confidentialité s'applique à tous les jeux mobiles publiés par <strong>Sisar One</strong> qui incluent un lien vers ce document, y compris, mais sans s'y limiter, les jeux de type Arcade, Plateforme, Casual et Idle **disponibles sur un ou plusieurs stores compatibles avec la plateforme publicitaire Start.io (tels que Google Play, Samsung Galaxy Store, Huawei AppGallery, et Aptoide).**</p>
 
   <h3>1. Données collectées (Collecte automatique)</h3>
   <p>Les types de données suivants sont collectés automatiquement par notre fournisseur tiers, **Start.io**, lorsque vous utilisez nos jeux :</p>
@@ -525,7 +556,7 @@
   <p><strong>अस्वीकरण:</strong> सेवा का उपयोग करके, आप स्वीकार करते हैं कि आप विज्ञापन उद्देश्यों के लिए **Sisar One** को नहीं, बल्कि **Start.io** को डेटा प्रदान कर रहे हैं।</p>
 
   <h3>4. अंतर्राष्ट्रीय डेटा हस्तांतरण</h3>
-  <p>**Start.io** द्वारा डेटा को उपयोगकर्ता के देश के बाहर स्थित सर्वर पर स्थानांतरित और संसाधित किया जा सकता है। ये हस्तांतरण मानक संविदात्मक खंड (SCCs) और अन्य कानूनी अनुपालन तंत्रों के तहत किए जाते हैं।</p>
+  <p>डेटा को उपयोगकर्ता के देश के बाहर स्थित सर्वर पर स्थानांतरित और संसाधित किया जा सकता है। इन हस्तांतरणों को मानक संविदात्मक खंड (SCCs) और अन्य कानूनी अनुपालन तंत्रों के तहत किए जाते हैं।</p>
 
   <h3>5. क्षेत्रीय सूचनाएं और उपयोगकर्ता अधिकार</h3>
   <p>सभी गोपनीयता अधिकारों का प्रयोग सीधे **Start.io** को निर्देशित किया जाना चाहिए।</p>
