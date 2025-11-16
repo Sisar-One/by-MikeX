@@ -1,6 +1,3 @@
-// js/carousel.js
-// Controla el carrusel de juegos usando data/games.json
-
 async function loadGames() {
   try {
     const response = await fetch("data/games.json");
@@ -10,13 +7,23 @@ async function loadGames() {
     carousel.innerHTML = "";
 
     games.forEach(game => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "game-card";
+
       const img = document.createElement("img");
       img.src = game.image;
       img.alt = game.title || "Game screenshot";
       img.addEventListener("click", () => {
         window.open(game.link, "_blank");
       });
-      carousel.appendChild(img);
+
+      const title = document.createElement("p");
+      title.textContent = game.title;
+      title.className = "game-title";
+
+      wrapper.appendChild(img);
+      wrapper.appendChild(title);
+      carousel.appendChild(wrapper);
     });
   } catch (err) {
     console.error("Error loading games:", err);
