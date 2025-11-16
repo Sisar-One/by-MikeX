@@ -1,38 +1,26 @@
-// js/lang.js
-// Language selector: sets the site language, highlights the active flag,
-// loads translations from JSON using data-key attributes, and persists the choice.
-
 document.addEventListener("DOMContentLoaded", () => {
   const supported = ["en", "es", "pt", "de", "fr", "ja", "hi"];
   const links = document.querySelectorAll(".lang-selector a");
 
-  // Load preferred language (hash > localStorage > navigator)
   const stored = localStorage.getItem("site-lang");
   const navLang = (navigator.languages && navigator.languages[0]) || navigator.language || "en";
-  let lang = (location.hash.replace("#", "") || stored || navLang.slice(0, 2)).toLowerCase();
+  let lang = (stored || navLang.slice(0, 2)).toLowerCase();
   if (!supported.includes(lang)) lang = "en";
 
   async function applyLang(target) {
     document.documentElement.lang = target;
     localStorage.setItem("site-lang", target);
 
-    // Update hash without scrolling
-    const url = new URL(window.location);
-    url.hash = target;
-    history.replaceState(null, "", url);
-
     // Highlight active flag
     links.forEach(a => {
-      const code = a.getAttribute("href").replace("#", "");
+      const code = a.dataset.lang;
       a.classList.toggle("active", code === target);
     });
 
-    // Load translations
     try {
       const response = await fetch(`i18n/${target}.json`);
       const data = await response.json();
 
-      // Recorre todos los elementos con data-key y aplica traducción
       document.querySelectorAll("[data-key]").forEach(el => {
         const key = el.getAttribute("data-key");
         const parts = key.split(".");
@@ -42,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     } catch (err) {
       console.error("Error loading language file:", err);
-      if (target !== "en") applyLang("en"); // fallback
+      if (target !== "en") applyLang("en");
     }
   }
 
@@ -52,14 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
   links.forEach(a => {
     a.addEventListener("click", (e) => {
       e.preventDefault();
-      const target = a.getAttribute("href").replace("#", "").toLowerCase();
+      const target = a.dataset.lang.toLowerCase();
       if (supported.includes(target)) applyLang(target);
     });
-  });
-
-  // Hash change
-  window.addEventListener("hashchange", () => {
-    const h = location.hash.replace("#", "").toLowerCase();
-    if (supported.includes(h)) applyLang(h);
   });
 });
