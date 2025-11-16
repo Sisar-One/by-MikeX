@@ -1,28 +1,28 @@
 {
   "nav": {
-    "home": "ホーム",
-    "games": "おすすめゲーム",
-    "privacy": "プライバシーポリシー",
-    "contact": "お問い合わせ",
-    "terms": "利用規約"
+    "home": "मुखपृष्ठ",
+    "games": "विशेष गेम",
+    "privacy": "गोपनीयता नीति",
+    "contact": "संपर्क",
+    "terms": "सेवा की शर्तें"
   },
   "games": {
-    "title": "おすすめゲーム"
+    "title": "विशेष गेम"
   },
   "privacy": {
-    "title": "プライバシーポリシー",
-    "text": "ポリシーを読む:",
+    "title": "गोपनीयता नीति",
+    "text": "हमारी नीतियाँ पढ़ें:",
     "links": {
-      "google": "Google広告のプライバシーポリシー",
-      "startio": "Start.ioのプライバシーポリシー"
+      "google": "Google Ads गोपनीयता नीति",
+      "startio": "Start.io गोपनीयता नीति"
     }
   },
   "contact": {
-    "title": "お問い合わせ",
-    "text": "サポート: sisarone@outlook.com"
+    "title": "संपर्क",
+    "text": "सपोर्ट: sisarone@outlook.com"
   },
   "footer": {
-    "text": "© 2025 Alfredo Miguel Perez Fajardo (Sisar One) | Android で利用可能",
-    "terms": "利用規約"
+    "text": "© 2025 Alfredo Miguel Perez Fajardo (Sisar One) | Android पर उपलब्ध",
+    "terms": "सेवा की शर्तें"
   }
 }
