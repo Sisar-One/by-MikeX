@@ -1,6 +1,6 @@
 // js/lang.js
 // Language selector: sets the site language, highlights the active flag,
-// loads translations from JSON, and persists the choice.
+// loads translations from JSON using data-key attributes, and persists the choice.
 
 document.addEventListener("DOMContentLoaded", () => {
   const supported = ["en", "es", "pt", "de", "fr", "ja", "hi"];
@@ -32,21 +32,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await fetch(`i18n/${target}.json`);
       const data = await response.json();
 
-      // Navigation
-      document.querySelector("nav a[href='#home']").textContent = data.nav.home;
-      document.querySelector("nav a[href='#games']").textContent = data.nav.games;
-      document.querySelector("nav a[href='#privacy']").textContent = data.nav.privacy;
-      document.querySelector("nav a[href='#contact']").textContent = data.nav.contact;
-
-      // Sections
-      document.querySelector("#games h2").textContent = data.games.title;
-      document.querySelector("#privacy h2").textContent = data.privacy.title;
-      document.querySelector("#privacy p").textContent = data.privacy.text;
-      document.querySelector("#contact h2").textContent = data.contact.title;
-      document.querySelector("#contact p").textContent = data.contact.text;
-
-      // Footer
-      document.querySelector(".footer-text").textContent = data.footer.text;
+      // Recorre todos los elementos con data-key y aplica traducción
+      document.querySelectorAll("[data-key]").forEach(el => {
+        const key = el.getAttribute("data-key");
+        const parts = key.split(".");
+        let value = data;
+        parts.forEach(p => { value = value[p]; });
+        if (value) el.textContent = value;
+      });
     } catch (err) {
       console.error("Error loading language file:", err);
       if (target !== "en") applyLang("en"); // fallback
