@@ -67,9 +67,9 @@ nav ul li a:hover {
   gap: 8px;
 }
 
-.lang-selector a {
-  font-size: 20px;
-  text-decoration: none;
+.lang-selector img {
+  width: 24px;
+  height: 16px;
 }
 
 /* Hero section */
@@ -94,6 +94,7 @@ section {
   margin: 40px auto;
   padding: 20px;
   border-top: 1px solid #e6e6e6;
+  scroll-margin-top: 80px;
 }
 
 section h2 {
@@ -110,17 +111,30 @@ section h2 {
   padding-bottom: 10px;
 }
 
+.game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-snap-align: center;
+}
+
 #carousel img {
   width: 480px;
   height: auto;
   border-radius: 8px;
-  scroll-snap-align: center;
   cursor: pointer;
   transition: transform 0.2s;
 }
 
 #carousel img:hover {
   transform: scale(1.05);
+}
+
+.game-title {
+  margin-top: 8px;
+  font-weight: bold;
+  color: #003366;
+  text-align: center;
 }
 
 /* Footer */
