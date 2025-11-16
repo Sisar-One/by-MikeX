@@ -12,7 +12,7 @@ async function loadGames() {
     games.forEach(game => {
       const img = document.createElement("img");
       img.src = game.image;
-      img.alt = "Game screenshot";
+      img.alt = game.title || "Game screenshot";
       img.addEventListener("click", () => {
         window.open(game.link, "_blank");
       });
@@ -23,33 +23,4 @@ async function loadGames() {
   }
 }
 
-// Inicializar carrusel
 document.addEventListener("DOMContentLoaded", loadGames);
-
-// Opcional: soporte de swipe en móviles
-let startX = 0;
-let scrollLeft = 0;
-
-const carousel = document.getElementById("carousel");
-carousel.addEventListener("mousedown", (e) => {
-  startX = e.pageX - carousel.offsetLeft;
-  scrollLeft = carousel.scrollLeft;
-  carousel.classList.add("active");
-});
-
-carousel.addEventListener("mouseleave", () => {
-  carousel.classList.remove("active");
-});
-
-carousel.addEventListener("mouseup", () => {
-  carousel.classList.remove("active");
-});
-
-carousel.addEventListener("mousemove", (e) => {
-  if (!carousel.classList.contains("active")) return;
-  e.preventDefault();
-  const x = e.pageX - carousel.offsetLeft;
-  const walk = (x - startX) * 2; // velocidad de desplazamiento
-  carousel.scrollLeft = scrollLeft - walk;
-});
-
