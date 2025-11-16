@@ -1,13 +1,10 @@
-// js/lang.js
-// Detección automática de idioma y cambio manual con banderitas
-
 document.addEventListener("DOMContentLoaded", () => {
-  const supported = ["en","es","pt","de","fr","ja","hi"];
+  const supported = ["en", "es", "pt", "de", "fr", "ja", "hi"];
   const sections = document.querySelectorAll("main section");
   const links = document.querySelectorAll(".lang-selector a");
 
   let navLang = (navigator.languages && navigator.languages[0]) || navigator.language || "en";
-  let lang = navLang.slice(0,2).toLowerCase();
+  let lang = navLang.slice(0, 2).toLowerCase();
   if (!supported.includes(lang)) lang = "en";
 
   const hash = location.hash.replace("#", "");
