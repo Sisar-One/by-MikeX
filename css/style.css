@@ -1,7 +1,26 @@
-body {
-  font-family: 'Roboto', 'Open Sans', Arial, sans-serif;
+body.light {
   background-color: #ffffff;
   color: #000000;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+header, footer, section {
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark header,
+body.dark footer,
+body.dark section {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body {
+  font-family: 'Roboto', 'Open Sans', Arial, sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.5;
@@ -12,7 +31,7 @@ header {
   position: sticky;
   top: 0;
   width: 100%;
-  background-color: #ffffff;
+  background-color: inherit;
   z-index: 1000;
   border-bottom: none;
 }
@@ -31,7 +50,6 @@ header .brand img.logo {
 
 header .brand h1 {
   font-size: 32px;
-  color: #003366;
   margin: 0;
 }
 
@@ -77,7 +95,6 @@ nav ul li a:hover {
   text-align: center;
   padding: 0px 20px;
   margin-top: -10px;
-  background: #f9f9f9;
 }
 
 .hero-image {
@@ -98,7 +115,6 @@ section {
 }
 
 section h2 {
-  color: #003366;
   margin-bottom: 12px;
 }
 
@@ -106,12 +122,14 @@ section h2 {
 #carousel {
   display: flex;
   overflow-x: auto;
-  gap: 12px;
+  gap: 24px;
   scroll-snap-type: x mandatory;
-  padding-bottom: 10px;
+  padding: 20px;
 }
 
 .game-card {
+  flex: 0 0 auto;
+  width: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -119,21 +137,20 @@ section h2 {
 }
 
 #carousel img {
-  width: 480px;
+  width: 400px;
   height: auto;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.2s ease;
 }
 
 #carousel img:hover {
-  transform: scale(1.05);
+  transform: scale(1.01);
 }
 
 .game-title {
   margin-top: 8px;
   font-weight: bold;
-  color: #003366;
   text-align: center;
 }
 
@@ -142,6 +159,19 @@ footer {
   text-align: center;
   padding: 20px;
   font-size: 14px;
-  color: #666666;
   border-top: 1px solid #e6e6e6;
+}
+
+/* Theme toggle */
+#theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  background: #ff6600;
+  color: white;
+  cursor: pointer;
 }
