@@ -3,24 +3,26 @@
     "home": "ホーム",
     "games": "おすすめゲーム",
     "privacy": "プライバシーポリシー",
-    "contact": "お問い合わせ"
-  },
-  "hero": {
-    "title": "Sisar One へようこそ"
+    "contact": "お問い合わせ",
+    "terms": "利用規約"
   },
   "games": {
     "title": "おすすめゲーム"
   },
   "privacy": {
     "title": "プライバシーポリシー",
-    "text": "ポリシーを読む:"
+    "text": "ポリシーを読む:",
+    "links": {
+      "google": "Google広告のプライバシーポリシー",
+      "startio": "Start.ioのプライバシーポリシー"
+    }
   },
   "contact": {
     "title": "お問い合わせ",
     "text": "サポート: sisarone@outlook.com"
   },
   "footer": {
-    "text": "© 2025 Alfredo Miguel Perez Fajardo (Sisar One) | Android で利用可能"
+    "text": "© 2025 Alfredo Miguel Perez Fajardo (Sisar One) | Android で利用可能",
+    "terms": "利用規約"
   }
 }
-
