@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.lang = target;
     localStorage.setItem("site-lang", target);
 
-    // Update hash without scrolling to a section
+    // Update hash without scrolling
     const url = new URL(window.location);
     url.hash = target;
     history.replaceState(null, "", url);
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
       a.classList.toggle("active", code === target);
     });
 
-    // Load translations from JSON
+    // Load translations
     try {
       const response = await fetch(`i18n/${target}.json`);
       const data = await response.json();
@@ -38,15 +38,12 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector("nav a[href='#privacy']").textContent = data.nav.privacy;
       document.querySelector("nav a[href='#contact']").textContent = data.nav.contact;
 
-      // Hero
-      document.querySelector(".hero-title").textContent = data.hero.title;
-
       // Sections
       document.querySelector("#games h2").textContent = data.games.title;
       document.querySelector("#privacy h2").textContent = data.privacy.title;
-      document.querySelector(".privacy-text").textContent = data.privacy.text;
+      document.querySelector("#privacy p").textContent = data.privacy.text;
       document.querySelector("#contact h2").textContent = data.contact.title;
-      document.querySelector(".contact-text").textContent = data.contact.text;
+      document.querySelector("#contact p").textContent = data.contact.text;
 
       // Footer
       document.querySelector(".footer-text").textContent = data.footer.text;
@@ -67,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // If hash changes manually, apply if valid; otherwise keep current
+  // Hash change
   window.addEventListener("hashchange", () => {
     const h = location.hash.replace("#", "").toLowerCase();
     if (supported.includes(h)) applyLang(h);
