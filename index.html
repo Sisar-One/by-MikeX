@@ -16,11 +16,11 @@
     </div>
     <nav>
       <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#games">Featured Games</a></li>
-        <li><a href="#privacy">Privacy Policy</a></li>
+        <li><a href="#home" data-key="nav.home">Home</a></li>
+        <li><a href="#games" data-key="nav.games">Featured Games</a></li>
+        <li><a href="#privacy" data-key="nav.privacy">Privacy Policy</a></li>
         <li><a href="legal/terms.html" target="_blank">Terms</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" data-key="nav.contact">Contact</a></li>
       </ul>
     </nav>
     <!-- Selector de idioma con banderas + botón de tema -->
@@ -43,14 +43,14 @@
 
   <!-- Featured Games Section -->
   <section id="games">
-    <h2>Featured Games</h2>
+    <h2 data-key="games.title">Featured Games</h2>
     <div id="carousel" data-src="data/games.json"></div>
   </section>
 
   <!-- Privacy Section -->
   <section id="privacy">
-    <h2>Privacy Policy</h2>
-    <p>Read our policies:</p>
+    <h2 data-key="privacy.title">Privacy Policy</h2>
+    <p data-key="privacy.text">Read our policies:</p>
     <ul>
       <li><a href="privacy/google-ads.html" target="_blank">Google Ads Privacy</a></li>
       <li><a href="privacy/start.io-ads.html" target="_blank">Start.io Privacy</a></li>
@@ -59,18 +59,18 @@
 
   <!-- Contact Section -->
   <section id="contact">
-    <h2>Contact</h2>
-    <p>Support: <a href="mailto:sisarone@outlook.com">sisarone@outlook.com</a></p>
+    <h2 data-key="contact.title">Contact</h2>
+    <p data-key="contact.text">Support: <a href="mailto:sisarone@outlook.com">sisarone@outlook.com</a></p>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p class="footer-text">© 2025 Alfredo Miguel Perez Fajardo (Sisar One) | Available for Android</p>
+    <p class="footer-text" data-key="footer.text">© 2025 Alfredo Miguel Perez Fajardo (Sisar One) | Available for Android</p>
     <nav>
-      <a href="#home">Home</a> | 
-      <a href="#games">Games</a> | 
-      <a href="#privacy">Privacy</a> | 
-      <a href="#contact">Contact</a>
+      <a href="#home" data-key="nav.home">Home</a> | 
+      <a href="#games" data-key="nav.games">Games</a> | 
+      <a href="#privacy" data-key="nav.privacy">Privacy</a> | 
+      <a href="#contact" data-key="nav.contact">Contact</a>
     </nav>
     <p><a href="legal/terms.html" target="_blank">Terms and Conditions</a></p>
   </footer>
