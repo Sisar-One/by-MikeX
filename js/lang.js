@@ -1,7 +1,12 @@
+// js/lang.js
+// Language selector: sets the site language, highlights the active flag,
+// loads translations from JSON using data-key attributes, and persists the choice.
+
 document.addEventListener("DOMContentLoaded", () => {
   const supported = ["en", "es", "pt", "de", "fr", "ja", "hi"];
   const links = document.querySelectorAll(".lang-selector a");
 
+  // Load preferred language (localStorage > navegador)
   const stored = localStorage.getItem("site-lang");
   const navLang = (navigator.languages && navigator.languages[0]) || navigator.language || "en";
   let lang = (stored || navLang.slice(0, 2)).toLowerCase();
@@ -17,10 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
       a.classList.toggle("active", code === target);
     });
 
+    // Load translations
     try {
       const response = await fetch(`i18n/${target}.json`);
       const data = await response.json();
 
+      // Recorre todos los elementos con data-key y aplica traducción
       document.querySelectorAll("[data-key]").forEach(el => {
         const key = el.getAttribute("data-key");
         const parts = key.split(".");
@@ -30,10 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     } catch (err) {
       console.error("Error loading language file:", err);
-      if (target !== "en") applyLang("en");
+      if (target !== "en") applyLang("en"); // fallback
     }
   }
 
+  // Aplica idioma inicial
   applyLang(lang);
 
   // Handle clicks on flags
