@@ -34,24 +34,8 @@ async function loadGames() {
       carousel.appendChild(wrapper);
     });
 
-    // Scroll automático continuo con pausa al hover
-    let autoScrollInterval;
-    function startAutoScroll() {
-      autoScrollInterval = setInterval(() => {
-        carousel.scrollLeft += 2; // velocidad
-        if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
-          carousel.scrollLeft = 0; // reinicia al inicio
-        }
-      }, 30); // cada 30ms
-    }
-    function stopAutoScroll() {
-      clearInterval(autoScrollInterval);
-    }
-
-    startAutoScroll();
-    carousel.addEventListener("mouseenter", stopAutoScroll);
-    carousel.addEventListener("mouseleave", startAutoScroll);
-
+    // 👉 Scroll manual: ya no hay auto-scroll ni rebote
+    // El usuario controla el desplazamiento con mouse o touch
   } catch (err) {
     const carousel = document.getElementById("carousel");
     console.error("Error loading games:", err);
