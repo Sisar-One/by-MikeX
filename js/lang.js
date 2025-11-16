@@ -39,17 +39,17 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector("nav a[href='#contact']").textContent = data.nav.contact;
 
       // Hero
-      document.querySelector(".hero h1").textContent = data.hero.title;
+      document.querySelector(".hero-title").textContent = data.hero.title;
 
       // Sections
       document.querySelector("#games h2").textContent = data.games.title;
       document.querySelector("#privacy h2").textContent = data.privacy.title;
-      document.querySelector("#privacy p").textContent = data.privacy.text;
+      document.querySelector(".privacy-text").textContent = data.privacy.text;
       document.querySelector("#contact h2").textContent = data.contact.title;
-      document.querySelector("#contact p").textContent = data.contact.text;
+      document.querySelector(".contact-text").textContent = data.contact.text;
 
       // Footer
-      document.querySelector("footer p").textContent = data.footer.text;
+      document.querySelector(".footer-text").textContent = data.footer.text;
     } catch (err) {
       console.error("Error loading language file:", err);
       if (target !== "en") applyLang("en"); // fallback
