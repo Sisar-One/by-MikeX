@@ -145,7 +145,7 @@ section h2 {
 }
 
 #carousel img:hover {
-  transform: scale(1.01);
+  transform: scale(1.01); /* efecto casi imperceptible */
 }
 
 .game-title {
