@@ -72,22 +72,40 @@ nav ul li a {
   transition: background 0.2s;
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a:focus {
   background: #fff3e6;
+  outline: none;
 }
 
-/* Selector de idioma */
+/* Selector de idioma + botón tema */
 .lang-selector {
   position: absolute;
   top: 10px;
   right: 20px;
   display: flex;
   gap: 8px;
+  align-items: center;
 }
 
 .lang-selector img {
   width: 24px;
   height: 16px;
+}
+
+.lang-selector button {
+  padding: 4px 8px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  background: #ff6600;
+  color: white;
+  cursor: pointer;
+}
+
+.lang-selector button:hover {
+  background: #e65c00;
+  transform: scale(1.05);
 }
 
 /* Hero section */
@@ -137,15 +155,12 @@ section h2 {
 }
 
 #carousel img {
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   height: auto;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-#carousel img:hover {
-  transform: scale(1.01); /* efecto casi imperceptible */
+  transition: none; /* sin aumento al hover */
 }
 
 .game-title {
@@ -160,18 +175,11 @@ footer {
   padding: 20px;
   font-size: 14px;
   border-top: 1px solid #e6e6e6;
+  background-color: #fafafa;
+  color: #333;
 }
 
-/* Theme toggle */
-#theme-toggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 8px 12px;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-  background: #ff6600;
-  color: white;
-  cursor: pointer;
+body.dark footer {
+  background-color: #1a1a1a;
+  color: #ccc;
 }
