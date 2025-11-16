@@ -1,1 +1,134 @@
+/* Tipografía y colores base */
+body {
+  font-family: 'Roboto', 'Open Sans', Arial, sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e6e6e6;
+  z-index: 1000;
+}
+
+header .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+}
+
+header .brand img.logo {
+  width: 48px;
+  height: 48px;
+}
+
+header .brand h1 {
+  font-size: 24px;
+  color: #003366;
+  margin: 0;
+}
+
+/* Navegación */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  margin: 0;
+  padding: 0 20px 10px;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #ff6600;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+nav ul li a:hover {
+  background: #fff3e6;
+}
+
+/* Selector de idioma */
+.lang-selector {
+  display: flex;
+  gap: 8px;
+  padding: 0 20px 10px;
+}
+
+.lang-selector a {
+  font-size: 18px;
+  text-decoration: none;
+}
+
+/* Hero section */
+.hero {
+  text-align: center;
+  padding: 80px 20px 40px;
+  background: #f9f9f9;
+}
+
+.hero h2 {
+  font-size: 32px;
+  color: #003366;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #666666;
+}
+
+/* Secciones */
+section {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 20px;
+  border-top: 1px solid #e6e6e6;
+}
+
+section h2 {
+  color: #003366;
+  margin-bottom: 12px;
+}
+
+/* Carrusel */
+#carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  scroll-snap-type: x mandatory;
+}
+
+#carousel img {
+  width: 240px;
+  height: auto;
+  border-radius: 8px;
+  scroll-snap-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#carousel img:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #666666;
+  border-top: 1px solid #e6e6e6;
+}
 
