@@ -1,44 +1,47 @@
 // js/lang.js
-// Control de idioma con hash, detección automática y activación visual de la bandera
+// Language selector: sets the site language, highlights the active flag,
+// and persists the choice. It does NOT hide page sections.
 
 document.addEventListener("DOMContentLoaded", () => {
   const supported = ["en", "es", "pt", "de", "fr", "ja", "hi"];
-  const sections = document.querySelectorAll("section"); // ajustado a tu index.html
   const links = document.querySelectorAll(".lang-selector a");
 
-  let navLang = (navigator.languages && navigator.languages[0]) || navigator.language || "en";
-  let lang = navLang.slice(0, 2).toLowerCase();
+  // Load preferred language (hash > localStorage > navigator)
+  const stored = localStorage.getItem("site-lang");
+  const navLang = (navigator.languages && navigator.languages[0]) || navigator.language || "en";
+  let lang = (location.hash.replace("#", "") || stored || navLang.slice(0, 2)).toLowerCase();
   if (!supported.includes(lang)) lang = "en";
 
-  const hash = location.hash.replace("#", "");
-  if (supported.includes(hash)) lang = hash;
+  function applyLang(target) {
+    document.documentElement.lang = target;
+    localStorage.setItem("site-lang", target);
 
-  function showSection(target) {
-    sections.forEach(sec => {
-      sec.style.display = (sec.id === target) ? "block" : "none";
-    });
+    // Update hash without scrolling to a section
+    const url = new URL(window.location);
+    url.hash = target;
+    history.replaceState(null, "", url);
+
+    // Highlight active flag
     links.forEach(a => {
-      const id = a.getAttribute("href").replace("#", "");
-      a.classList.toggle("active", id === target);
+      const code = a.getAttribute("href").replace("#", "");
+      a.classList.toggle("active", code === target);
     });
   }
 
-  showSection(lang);
+  applyLang(lang);
 
+  // Handle clicks on flags
   links.forEach(a => {
     a.addEventListener("click", (e) => {
       e.preventDefault();
-      const target = a.getAttribute("href").replace("#", "");
-      if (supported.includes(target)) {
-        history.replaceState(null, "", "#" + target);
-        showSection(target);
-      }
+      const target = a.getAttribute("href").replace("#", "").toLowerCase();
+      if (supported.includes(target)) applyLang(target);
     });
   });
 
+  // If hash changes manually, apply if valid; otherwise keep current
   window.addEventListener("hashchange", () => {
-    const h = location.hash.replace("#", "");
-    const target = supported.includes(h) ? h : "en";
-    showSection(target);
+    const h = location.hash.replace("#", "").toLowerCase();
+    if (supported.includes(h)) applyLang(h);
   });
 });
