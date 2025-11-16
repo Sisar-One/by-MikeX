@@ -3,24 +3,26 @@
     "home": "Accueil",
     "games": "Jeux en Vedette",
     "privacy": "Politique de Confidentialité",
-    "contact": "Contact"
-  },
-  "hero": {
-    "title": "Bienvenue chez Sisar One"
+    "contact": "Contact",
+    "terms": "Conditions générales"
   },
   "games": {
     "title": "Jeux en Vedette"
   },
   "privacy": {
     "title": "Politique de Confidentialité",
-    "text": "Lisez nos politiques :"
+    "text": "Lisez nos politiques :",
+    "links": {
+      "google": "Politique de confidentialité Google Ads",
+      "startio": "Politique de confidentialité Start.io"
+    }
   },
   "contact": {
     "title": "Contact",
     "text": "Support : sisarone@outlook.com"
   },
   "footer": {
-    "text": "© 2025 Alfredo Miguel Perez Fajardo (Sisar One) | Disponible sur Android"
+    "text": "© 2025 Alfredo Miguel Perez Fajardo (Sisar One) | Disponible sur Android",
+    "terms": "Conditions générales"
   }
 }
-
