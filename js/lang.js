@@ -1,6 +1,9 @@
+// js/lang.js
+// Control de idioma con hash, detección automática y activación visual de la bandera
+
 document.addEventListener("DOMContentLoaded", () => {
   const supported = ["en", "es", "pt", "de", "fr", "ja", "hi"];
-  const sections = document.querySelectorAll("main section");
+  const sections = document.querySelectorAll("section"); // ajustado a tu index.html
   const links = document.querySelectorAll(".lang-selector a");
 
   let navLang = (navigator.languages && navigator.languages[0]) || navigator.language || "en";
