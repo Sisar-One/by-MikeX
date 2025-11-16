@@ -38,4 +38,5 @@ document.getElementById("theme-toggle").addEventListener("click", () => {
   document.body.classList.toggle("light");
 });
 
+// Tema por defecto: claro
 document.body.classList.add("light");
