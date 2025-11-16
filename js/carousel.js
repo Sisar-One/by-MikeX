@@ -34,15 +34,23 @@ async function loadGames() {
       carousel.appendChild(wrapper);
     });
 
-    // Carrusel circular: rebote al inicio/final
-    carousel.addEventListener("scroll", () => {
-      if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
-        carousel.scrollLeft = 0; // vuelve al inicio
-      }
-      if (carousel.scrollLeft === 0) {
-        carousel.scrollLeft = carousel.scrollWidth - carousel.clientWidth; // vuelve al final
-      }
-    });
+    // Scroll automático continuo con pausa al hover
+    let autoScrollInterval;
+    function startAutoScroll() {
+      autoScrollInterval = setInterval(() => {
+        carousel.scrollLeft += 2; // velocidad
+        if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
+          carousel.scrollLeft = 0; // reinicia al inicio
+        }
+      }, 30); // cada 30ms
+    }
+    function stopAutoScroll() {
+      clearInterval(autoScrollInterval);
+    }
+
+    startAutoScroll();
+    carousel.addEventListener("mouseenter", stopAutoScroll);
+    carousel.addEventListener("mouseleave", startAutoScroll);
 
   } catch (err) {
     const carousel = document.getElementById("carousel");
