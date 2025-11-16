@@ -1,1 +1,26 @@
+{
+  "nav": {
+    "home": "Início",
+    "games": "Jogos em Destaque",
+    "privacy": "Política de Privacidade",
+    "contact": "Contato"
+  },
+  "hero": {
+    "title": "Bem-vindo ao Sisar One"
+  },
+  "games": {
+    "title": "Jogos em Destaque"
+  },
+  "privacy": {
+    "title": "Política de Privacidade",
+    "text": "Leia nossas políticas:"
+  },
+  "contact": {
+    "title": "Contato",
+    "text": "Suporte: sisarone@outlook.com"
+  },
+  "footer": {
+    "text": "© 2025 Alfredo Miguel Perez Fajardo (Sisar One) | Disponível para Android"
+  }
+}
 
