@@ -31,3 +31,11 @@ async function loadGames() {
 }
 
 document.addEventListener("DOMContentLoaded", loadGames);
+
+// Tema día/noche
+document.getElementById("theme-toggle").addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  document.body.classList.toggle("light");
+});
+
+document.body.classList.add("light");
