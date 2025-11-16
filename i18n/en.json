@@ -3,24 +3,26 @@
     "home": "Home",
     "games": "Featured Games",
     "privacy": "Privacy Policy",
-    "contact": "Contact"
-  },
-  "hero": {
-    "title": "Welcome to Sisar One"
+    "contact": "Contact",
+    "terms": "Terms of Service"
   },
   "games": {
     "title": "Featured Games"
   },
   "privacy": {
     "title": "Privacy Policy",
-    "text": "Read our policies:"
+    "text": "Read our policies:",
+    "links": {
+      "google": "Google Ads Privacy Policy",
+      "startio": "Start.io Privacy Policy"
+    }
   },
   "contact": {
     "title": "Contact",
     "text": "Support: sisarone@outlook.com"
   },
   "footer": {
-    "text": "© 2025 Alfredo Miguel Perez Fajardo (Sisar One) | Available for Android"
+    "text": "© 2025 Alfredo Miguel Perez Fajardo (Sisar One) | Available for Android",
+    "terms": "Terms and Conditions"
   }
 }
-
