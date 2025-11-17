@@ -25,7 +25,7 @@ by-MikeX/
 
 
 ## 🖼️ Branding
-- Background: White
+- Background: White/black Themes
 - Logo: Two tones of blue + two tones of orange
 
 ## 📱 Platform
