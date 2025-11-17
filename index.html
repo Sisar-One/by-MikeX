@@ -9,31 +9,97 @@
 </head>
 <body>
   <!-- Header -->
+  <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sisar One – About Us</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff; 
+      color: #000000;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      position: fixed;
+      top: 0; 
+      width: 100%;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 20px;
+      z-index: 1000; 
+    }
+    .title {
+      font-size: 40px;
+      color: #003366;
+      margin-bottom: 5px;
+      text-align: center; 
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; 
+    }
+    nav a {
+      margin: 0 8px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #ff6600; 
+    }
+    nav img {
+      width: 20px;
+      vertical-align: middle;
+      margin-right: 4px; 
+    }
+    main {
+      padding: 100px 20px 20px 20px; 
+    }
+    section {
+      margin-top: 40px;
+      border-top: 1px solid #ccc;
+      padding-top: 20px;
+      scroll-margin-top: 140px; 
+    }
+    h2 {
+      color: #003366; 
+    }
+    strong {
+      font-weight: bold; 
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const userLang = navigator.language || navigator.userLanguage;
+      const langCode = userLang.split('-')[0];
+      const validLangs = ['en', 'es', 'pt', 'de', 'fr', 'ja', 'hi', 'nl'];
+
+      let targetLang = 'en';
+      if (validLangs.includes(langCode)) {
+        targetLang = langCode;
+      }
+
+      if (!window.location.hash) {
+        window.location.hash = targetLang;
+      }
+    });
+  </script>
+</head>
+<body>
   <header>
-    <a href="about.html" target="_blank" class="brand" style="text-decoration: none; color: inherit;">
-      <img src="images/logo.webp" alt="Sisar One Logo" class="logo" />
-      <h1>Sisar One</h1>
-    </a>
+    <h1 class="title">Sisar One</h1>
     <nav>
-      <ul>
-        <li><a href="#home" data-key="nav.home">Home</a></li>
-        <li><a href="#games" data-key="nav.games">Featured Games</a></li>
-        <li><a href="#privacy" data-key="nav.privacy">Privacy Policy</a></li>
-        <li><a href="legal/terms.html" target="_blank" data-key="nav.terms">Terms of Service</a></li>
-        <li><a href="#contact" data-key="nav.contact">Contact</a></li>
-      </ul>
+      <a href="#en"><img src="https://flagcdn.com/us.svg" class="flag">English</a>
+      <a href="#es"><img src="https://flagcdn.com/mx.svg" class="flag">Español</a>
+      <a href="#pt"><img src="https://flagcdn.com/br.svg" class="flag">Português</a>
+      <a href="#de"><img src="https://flagcdn.com/de.svg" class="flag">Deutsch</a>
+      <a href="#fr"><img src="https://flagcdn.com/fr.svg" class="flag">Français</a>
+      <a href="#ja"><img src="https://flagcdn.com/jp.svg" class="flag">日本語</a>
+      <a href="#hi"><img src="https://flagcdn.com/in.svg" class="flag">हिन्दी</a>
     </nav>
-    <!-- Selector de idioma con banderas + botón de tema -->
-    <div class="lang-selector">
-      <a href="#" data-lang="en" aria-label="English"><img src="https://flagcdn.com/us.svg" alt="English" /></a>
-      <a href="#" data-lang="es" aria-label="Español"><img src="https://flagcdn.com/mx.svg" alt="Español" /></a>
-      <a href="#" data-lang="pt" aria-label="Português"><img src="https://flagcdn.com/br.svg" alt="Português" /></a>
-      <a href="#" data-lang="de" aria-label="Deutsch"><img src="https://flagcdn.com/de.svg" alt="Deutsch" /></a>
-      <a href="#" data-lang="fr" aria-label="Français"><img src="https://flagcdn.com/fr.svg" alt="Français" /></a>
-      <a href="#" data-lang="ja" aria-label="日本語"><img src="https://flagcdn.com/jp.svg" alt="日本語" /></a>
-      <a href="#" data-lang="hi" aria-label="हिन्दी"><img src="https://flagcdn.com/in.svg" alt="हिन्दी" /></a>
-      <button id="theme-toggle" aria-pressed="false">🌙</button>
-    </div>
   </header>
 
   <!-- Hero Section -->
