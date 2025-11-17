@@ -2,31 +2,37 @@
   {
     "title": "Atina Forma Racer",
     "image": "images/AFR.jpeg",
-    "link": "https://play.google.com/store/apps/details?id=com.SisarOne.AtinaFormaRacer&pcampaignid=web_share"
+    "link": "https://play.google.com/store/apps/details?id=com.SisarOne.AtinaFormaRacer&pcampaignid=web_share",
+    "alt": "Descarga un juego de cambio de forma desde Google Play Store"
   },
   {
     "title": "Transmuta Racer 1",
     "image": "images/cs.webp",
-    "link": "https://play.google.com/store/apps/details?id=com.SisarOne.AtinaFormaRacer&pcampaignid=web_share"
+    "link": "https://play.google.com/store/apps/details?id=com.SisarOne.AtinaFormaRacer&pcampaignid=web_share",
+    "alt": "Próximamente disponible en la Play Store"
   },
   {
     "title": "Sisar's Shape Game",
     "image": "images/csd.webp",
-    "link": "https://play.google.com/store/apps/dev?id=5270411652221830121"
+    "link": "https://play.google.com/store/apps/dev?id=5270411652221830121",
+    "alt": "Juego en etapa temprana de desarrollo"
   },
   {
     "title": "Sisar's Shape Havoc",
     "image": "images/csd.webp",
-    "link": "https://play.google.com/store/apps/dev?id=5270411652221830121"
+    "link": "https://play.google.com/store/apps/dev?id=5270411652221830121",
+    "alt": "Juego en etapa temprana de desarrollo"
   },
   {
     "title": "Crushy Rush",
     "image": "images/csd.webp",
-    "link": "https://play.google.com/store/apps/dev?id=5270411652221830121"
+    "link": "https://play.google.com/store/apps/dev?id=5270411652221830121",
+    "alt": "Juego en etapa temprana de desarrollo"
   },
   {
     "title": "Esquiva Loco 1",
     "image": "images/csd.webp",
-    "link": "https://play.google.com/store/apps/dev?id=5270411652221830121"
+    "link": "https://play.google.com/store/apps/dev?id=5270411652221830121",
+    "alt": "Juego proyectado para publicarse en 2026"
   }
 ]
