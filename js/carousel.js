@@ -19,7 +19,7 @@ async function loadGames() {
 
       const img = document.createElement("img");
       img.src = game.image;
-      img.alt = game.title || "Game screenshot";
+      img.alt = game.alt || game.title || "Game screenshot"; // ✅ ahora usa alt del JSON
       img.loading = "lazy"; // mejora rendimiento
       img.addEventListener("click", () => {
         window.open(game.link, "_blank");
