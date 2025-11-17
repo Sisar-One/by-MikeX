@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sisar-one.github.io/by-MikeX/sitemap.xml
